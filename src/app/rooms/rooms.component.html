@@ -1,0 +1,23 @@
+<p>welcome to {{hotelName}}</p>
+<div [hidden]="hideRooms">
+
+
+
+Number of Rooms:
+<div [innerText]="numberOfRooms"></div>
+</div>
+<p>{{ rooms.availableRooms || 'no rooms' }}</p>
+
+
+<div>
+    <button (click)="addRoom()">Add New Room</button>
+</div>
+
+@if (rooms.availableRooms  !==undefined && rooms.availableRooms>0 ) {
+    <div >
+    <inv-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)" [title]="'Room List'"></inv-rooms-list>
+</div>
+}
+
+
+<button class="btn btn-primary"  (click)="toggle()">Toggle</button>
